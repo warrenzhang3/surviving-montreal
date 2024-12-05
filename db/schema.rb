@@ -88,7 +88,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_173121) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.text "description"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
   end
 
   create_table "tags", force: :cascade do |t|
