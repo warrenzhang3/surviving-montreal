@@ -1,22 +1,36 @@
-app/views/events/new.html.erb
-<%= form_with model: @event do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1><%= @event.title %></h1>
+        <p class="text-muted">Organized by <%= @event.user.first_name %></p>
+        <p><%= @event.description %></p>
+        <div class="mb-3">
+          <% @event.images.each do |image| %>
+            <%= cl_image_tag image.key, class: "img-fluid", style: "height: 300px; width: 100%; object-fit: cover;" %>
+          <% end %>
+        </div>
+        <p><strong>Location:</strong> <%= @event.location %></p>
+        <p><strong>Date:</strong> <%= @event.event_date %></p>
+        <p><strong>Number of People:</strong> <%= @event.number_of_people %> attending</p>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-
-  <%= f.label :event_date %>
-  <%= f.text_field :event_date %>
-
-  <%= f.label :location %>
-  <%= f.number_field :location %>
-
-  <%= f.label :number_of_people %>
-  <%= f.number_field :number_of_people %>
-
-  <%= f.submit %>
-<% end %>
+        <div class="d-flex">
+          <%= button_to "Going", going_event_path(@event), method: :post, class: "btn btn-primary mr-2" %>
+          <%= link_to "Unavailable", events_path, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
