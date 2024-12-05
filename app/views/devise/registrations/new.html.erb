@@ -25,11 +25,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :profile_pic,
-                as: :file,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "profile_pic" }%>
+    <%= f.input :profile_pic, as: :file %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>

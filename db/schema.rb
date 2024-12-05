@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_05_182948) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_05_173121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_182948) do
   create_table "articles", force: :cascade do |t|
     t.string "video_url"
     t.string "description"
-    t.string "image_url"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -89,7 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_182948) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
-    t.string "image_url"
     t.text "description"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -135,7 +133,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_182948) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "profile_pic"
     t.date "year_of_arrival"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

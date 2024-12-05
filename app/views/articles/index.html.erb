@@ -1,7 +1,10 @@
 <ul>
   <% @articles.each do |article| %>
+    <li><%= article.user.first_name %></li>
     <li><%= article.title %></li>
-    <li><%= article.user %></li>
-    <li><%= article.image_url %></li>
+    <li><%= article.description %></li>
+    <% article.images.each do |image| %>
+      <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% end %>
 </ul>

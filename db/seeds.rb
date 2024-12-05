@@ -14,7 +14,6 @@ puts "Creating users..."
     password_confirmation: "password"
   )
 
-  # Attacher une image d'avatar générique
   file = URI.open("https://picsum.photos/200")
   user.profile_pic.attach(io: file, filename: "profile_pic.jpg", content_type: "image/jpeg")
 
@@ -29,14 +28,13 @@ User.all.each do |user|
     article = Article.create!(
       title: Faker::Book.title,
       description: Faker::Lorem.paragraph(sentence_count: 5),
-      user: user, # Associe l'article à un utilisateur
-      # published_at: Faker::Date.between(from: '2022-01-01', to: '2024-01-01') # Ajoute une date de publication
+      user: user,
     )
 
     # Attache une image aléatoire à l'article
     url = "https://picsum.photos/800/600" # Utilisez une image aléatoire de Lorem Picsum
     file = URI.open(url)
-    article.image_url.attach(io: file, filename: "article_#{article.id}.jpg", content_type: "image/jpeg")
+    article.images.attach(io: file, filename: "article_#{article.id}.jpg", content_type: "image/jpeg")
 
     puts "Created article '#{article.title}' by #{user.first_name} #{user.last_name} with an image"
   end
@@ -54,9 +52,8 @@ puts "Creating events with images..."
       user: User.all.sample
     )
 
-    # Ajouter une image à l'événement
     file = URI.open("https://picsum.photos/800/600")
-    event.image_url.attach(io: file, filename: "event_#{event.id}.jpg", content_type: "image/jpeg")
+    event.images.attach(io: file, filename: "event_#{event.id}.jpg", content_type: "image/jpeg")
 
     puts "Created event '#{event.title}' with an image at #{event.location}"
   rescue OpenURI::HTTPError => e
@@ -65,7 +62,5 @@ puts "Creating events with images..."
 end
 
 puts "Finished creating events!"
-
-
 
 puts "Finished!"

@@ -1,7 +1,12 @@
 <ul>
   <% @events.each do |event| %>
+    <li><%= event.user.first_name %></li>
     <li><%= event.title %></li>
-    <li><%= event.image_url %></li>
+    <li><%= event.location %></li>
     <li><%= event.event_date %></li>
+    <li><%= event.number_of_people %></li>
+    <% event.images.each do |image| %>
+      <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% end %>
 </ul>
