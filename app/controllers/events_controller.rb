@@ -20,6 +20,6 @@ class EventsController < ApplicationController
   private
 
   def article_params
-    params.require(:event).permit(:user, :title, :image_url, :location, :event_date, :number_of_people)
+    params.require(:event).permit(:user, :title, :images [], :location, :event_date, :number_of_people)
   end
 end
