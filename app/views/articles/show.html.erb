@@ -1,5 +1,6 @@
 <h2><%= @article.title %></h2>
-<p><%= @article.user %></p>
+<p>By: <%= "#{@article.user.first_name} #{@article.user.last_name}"%></p>
 <p><%= @article.description %></p>
-<p><%= @article.image_url %></p>
-<p><%= @article.video_url %></p>
+<% @article.images.each do |image| %>
+  <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+<% end %>
