@@ -48,6 +48,7 @@ puts "Creating events with images..."
       title: Faker::Lorem.sentence(word_count: 3),
       location: Faker::Address.full_address,
       event_date: Faker::Date.forward(days: 30),
+      description: Faker::Lorem.paragraph(sentence_count: 5),
       number_of_people: rand(10..100),
       user: User.all.sample
     )
