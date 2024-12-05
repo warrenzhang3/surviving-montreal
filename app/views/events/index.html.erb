@@ -1,7 +1,8 @@
+<%# app/views/events/index.html.rb %>
 <ul>
   <% @events.each do |event| %>
     <li><%= event.title %></li>
-    <li><%= event.image_url %></li>
+    <li><%= event.images %></li>
     <li><%= event.event_date %></li>
   <% end %>
 </ul>
