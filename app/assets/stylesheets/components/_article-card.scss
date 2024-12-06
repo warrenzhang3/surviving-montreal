@@ -1,0 +1,71 @@
+.card-container {
+  background-color: rgb(33, 146, 191);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.card-styling {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+
+  img {
+    border-radius: 20px;
+  }
+
+  #title-card {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h5 {
+      color: rgb(142, 142, 147);
+    }
+
+    i {
+      color: rgb(33, 146, 191);
+    }
+  }
+
+  ul {
+    #li-tags {
+      span {
+        background: red;
+        color: white;
+        padding: 5px;
+        border-radius: 20px;
+      }
+    }
+
+    #card-date-comment {
+      // background-color: red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      li {
+        border: none;
+      }
+
+      i {
+        color: rgb(33, 146, 191);
+      }
+    }
+  }
+
+  .card-body {
+    a {
+      background-color: rgb(33, 146, 191);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
