@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_pic
   has_and_belongs_to_many :events
+  has_and_belongs_to_many :bookmarked_articles, class_name: 'Article', join_table: :bookmarks
 end

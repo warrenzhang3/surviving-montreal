@@ -14,9 +14,9 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  // width: 200px;
-  // max-height: 200px;  /* Adjust this to fit */
-  object-fit: cover;
+  width: 40px;
+  max-height: 40px;
+  object-fit: contain;
 }
 
 .navbar-toggler {
