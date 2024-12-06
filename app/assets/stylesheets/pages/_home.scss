@@ -1,1 +1,28 @@
 // Specific CSS for your home-page
+
+.home-container {
+  padding-top: 50px;
+
+  h1 {
+    font-size: 2rem;
+
+    i {
+      color: rgb(33, 146, 191);
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+#submit-button,
+#search-input {
+  border: 1px solid rgb(33, 146, 191);
+
+  button {
+    i {
+      color: rgb(33, 146, 191);
+    }
+  }
+}
