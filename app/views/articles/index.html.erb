@@ -1,10 +1,63 @@
-<ul>
-  <% @articles.each do |article| %>
-    <li><%= article.user.first_name %></li>
-    <li><%= article.title %></li>
-    <li><%= article.description %></li>
-    <% article.images.each do |image| %>
-      <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+<%# app/views/articles/index.html.erb %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% @articles.each do |article| %>
+        <div class="col-12 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= link_to article.title, article_path(article), class: "card-link" %>
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">By: <%= "#{article.user.first_name} #{article.user.last_name}" %></h6>
+              <% article.images.each do |image| %>
+                <div class="mb-2">
+                  <%= link_to article_path(article) do %>
+                    <%= cl_image_tag image.key, class: "img-fluid", style: "height: 200px; width: 100%; object-fit: cover;" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="d-flex flex-wrap">
+                <span class="badge badge-pill badge-info mr-2"># TAG</span>
+                <span class="badge badge-pill badge-info"># TAG</span>
+              </div>
+              <%= button_to 'Bookmark', bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-primary mt-3' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= javascript_tag do %>
+    document.addEventListener("turbo:load", function() {
+      document.querySelectorAll('.btn-primary').forEach(button => {
+        button.addEventListener('ajax:success', function(event) {
+          var [data, status, xhr] = event.detail;
+          var alertBox = document.createElement('div');
+          alertBox.className = 'alert alert-success';
+          alertBox.innerText = 'Saved to your bookmarks';
+          document.querySelector('.container').prepend(alertBox);
+        });
+      });
+    });
   <% end %>
-</ul>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
