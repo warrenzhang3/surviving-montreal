@@ -11,13 +11,14 @@
   left: 0;
   width: 100%;
   top: 60px;
+  z-index: 1050;
 }
 
 .navbar-lewagon .navbar-brand img {
 
-  width: 150px;
-  max-height: 150px;
-  object-fit: cover;
+  width: 50px;
+  max-height: 50px;
+  object-fit: contain;
 
 }
 
@@ -25,12 +26,14 @@
   position: absolute;
   left: 10px;
   top: 10px;
+  z-index: 1100;
 }
 
 .btn-outline-secondary {
   position: absolute;
   right: 10px;
   top: 10px;
+  z-index: 1100;
 }
 
 .navbar-nav {
@@ -41,4 +44,8 @@
   width: 100%;
   text-align: center;
   padding: 10px 0;
+}
+
+.logo-small {
+  height: 35px;
 }
