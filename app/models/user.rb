@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_pic
   has_and_belongs_to_many :events
+
+  def name
+    "#{first_name} #{last_name}".strip
+  end
 end
