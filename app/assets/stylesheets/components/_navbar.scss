@@ -3,6 +3,7 @@
   justify-content: space-between;
   background: white;
   position: relative;
+  padding-top: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,8 +15,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  // width: 200px;
-  // max-height: 200px;  /* Adjust this to fit */
+  width: 150px;
+  max-height: 150px;
   object-fit: cover;
 }
 
