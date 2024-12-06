@@ -25,7 +25,7 @@ class EventsController < ApplicationController
 
   def going
     @event = Event.find(params[:id])
-    current_user.events << @event
+    current_user.events << @event unless current_user.events.include?(@event)
     redirect_to my_events_path
   end
 
