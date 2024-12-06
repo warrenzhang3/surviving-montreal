@@ -4,7 +4,7 @@
   padding-top: 50px;
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
 
     i {
       color: rgb(33, 146, 191);
@@ -18,11 +18,21 @@
 
 #submit-button,
 #search-input {
-  border: 1px solid rgb(33, 146, 191);
+  // border: 1px solid rgb(33, 146, 191);
 
   button {
     i {
       color: rgb(33, 146, 191);
+      border: none;
     }
+  }
+}
+
+#search-form {
+  border: 1px solid rgb(33, 146, 191);
+  border-radius: 5px;
+
+  input {
+    border: none;
   }
 }
