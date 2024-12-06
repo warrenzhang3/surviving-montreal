@@ -11,7 +11,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :articles, only: [:index, :show, :new, :create]
+  resources :articles, only: [:index, :show, :new, :create] do
+    post 'bookmark', on: :member
+    collection do
+      get 'bookmarked'
+    end
+  end
+
   resources :events, only: [:index, :show, :new, :create] do
     member do
       post 'going'
