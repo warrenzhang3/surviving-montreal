@@ -15,8 +15,13 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    redirect_to article_path(@article)
+    @article.user = current_user
+
+    if @article.save
+      redirect_to articles_path, notice: "Successful!"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def bookmark
@@ -35,6 +40,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:user, :description, :images [])
+    params.require(:article).permit(:title, :description, images: [])
   end
 end
