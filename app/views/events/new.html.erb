@@ -29,8 +29,8 @@
           </div>
 
           <div class="mb-3">
-            <%= f.label :image_url, class: "form-label" %>
-            <%= f.text_field :image_url, class: "form-control", required: true %>
+            <%= f.label :Upload_Image, class: "form-label" %>
+            <%= f.file_field :images, class: "form-control", multiple: true %>
             <div class="invalid-feedback">
               Please provide an image URL.
             </div>
@@ -59,7 +59,6 @@
               Please provide the number of people.
             </div>
           </div>
-
           <%= f.submit "Create Event", class: "btn btn-primary" %>
         <% end %>
       </div>
