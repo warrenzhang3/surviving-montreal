@@ -24,13 +24,13 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Create An Article</h1>
+        <h1>Post An Article</h1>
         <%= simple_form_for(@article) do |f| %>
           <!-- [...] -->
           <%= f.input :title, class: "form-label" %>
           <%= f.input :description, class: "form-label" %>
           <%= f.input :images, as: :file, input_html: { multiple: true } %>
-          <%= f.submit "Create Article", class: "btn btn-primary" %>
+          <%= f.submit "Post Article", class: "btn btn-primary" %>
           <!-- [...] -->
         <% end %>
       </div>

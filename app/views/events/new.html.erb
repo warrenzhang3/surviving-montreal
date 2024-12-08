@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Create New Event</h1>
+        <h1>Plan An Event</h1>
         <%= form_with model: @event, local: true, class: "needs-validation", novalidate: true do |f| %>
           <div class="mb-3">
             <%= f.label :title, class: "form-label" %>
@@ -60,7 +60,7 @@
             </div>
           </div>
 
-          <%= f.submit "Create Event", class: "btn btn-primary" %>
+          <%= f.submit "Plan Event", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
