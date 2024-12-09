@@ -21,10 +21,11 @@
                   <%= cl_image_tag image.key, class: "img-fluid", style: "height: 200px; width: 100%; object-fit: cover;" %>
                 <% end %>
               </div>
-            <% end %>
-            <div class="d-flex flex-wrap">
-              <span class="badge badge-pill badge-info mr-2"># TAG</span>
-              <span class="badge badge-pill badge-info"># TAG</span>
+              <div class="d-flex justify-content-end">
+                <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: :post } do %>
+                  <i class="fa-solid fa-bookmark"></i>
+                <% end %>
+              </div>
             </div>
             <%= button_to 'Bookmark', bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-primary mt-3' %>
           </div>

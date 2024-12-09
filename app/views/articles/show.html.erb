@@ -12,9 +12,11 @@
                 <%= cl_image_tag image.key, class: "img-fluid", style: "height: 200px; width: 100%; object-fit: cover;" %>
               </div>
             <% end %>
-            <div class="d-flex flex-wrap">
-              <span class="badge badge-pill badge-primary mr-2"># TAG</span>
-              <span class="badge badge-pill badge-primary"># TAG</span>
+              <div class="d-flex justify-content-end">
+                <%= link_to bookmark_article_path(@article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: :post } do %>
+                  <i class="fa-solid fa-bookmark"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -30,8 +32,8 @@
       <%= render @article.comments %>
     </div>
     <div class="text-end">
-      <button id="toggleCommentForm" class="btn btn-link">
-        💬
+      <button id="toggleCommentForm" class="btn btn-link" style="text-decoration: none;">
+        <i class="fa-solid fa-comment"></i>
       </button>
     </div>
     <div id="commentFormContainer" class="highlight p-3 mt-3" style="display: none;">
@@ -41,13 +43,16 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('toggleCommentForm').addEventListener('click', function() {
-      var commentForm = document.getElementById('commentFormContainer');
-      if (commentForm.style.display === 'none') {
-        commentForm.style.display = 'block';
-      } else {
-        commentForm.style.display = 'none';
+  document.addEventListener('turbo:load', () => {
+    document.body.addEventListener('click', function(event) {
+      if (event.target.closest('#toggleCommentForm')) {
+        var commentForm = document.getElementById('commentFormContainer');
+        if (commentForm.style.display === 'none' || commentForm.style.display === '') {
+          commentForm.style.display = 'block';
+          commentForm.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          commentForm.style.display = 'none';
+        }
       }
     });
   });
