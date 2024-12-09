@@ -90,3 +90,19 @@ events.each_with_index do |event_data, i|
 end
 
 puts "Finished creating events and articles!"
+
+puts "Finished creating events and articles!"
+
+# Create Ribot's user account
+ribot = User.create!(
+  first_name: "Ribot",
+  last_name: "T.",
+  email: "ribot@email.com",
+  password: "123456",
+  password_confirmation: "123456"
+)
+
+generic_profile_pic_url = "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid"
+ribot.profile_pic.attach(io: URI.parse(generic_profile_pic_url).open, filename: "generic_profile_pic.jpg", content_type: "image/jpeg")
+
+puts "Created Ribot's user account"
