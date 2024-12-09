@@ -70,6 +70,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_170520) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bookmarks", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
+    t.index ["user_id", "article_id"], name: "index_bookmarks_on_user_id_and_article_id", unique: true
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "description"
     t.bigint "article_id", null: false
@@ -95,6 +101,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_170520) do
   create_table "events_users", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
+    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
+    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
