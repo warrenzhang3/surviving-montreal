@@ -26,9 +26,29 @@
 <div class="row">
   <div class="col-12">
     <h3>Comments</h3>
-    <%= render partial: 'comments/form', locals: { article: @article } %>
     <div id="comments">
       <%= render @article.comments %>
     </div>
+    <div class="text-end">
+      <button id="toggleCommentForm" class="btn btn-link">
+        💬
+      </button>
+    </div>
+    <div id="commentFormContainer" class="highlight p-3 mt-3" style="display: none;">
+      <%= render partial: 'comments/form', locals: { article: @article } %>
+    </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('toggleCommentForm').addEventListener('click', function() {
+      var commentForm = document.getElementById('commentFormContainer');
+      if (commentForm.style.display === 'none') {
+        commentForm.style.display = 'block';
+      } else {
+        commentForm.style.display = 'none';
+      }
+    });
+  });
+</script>
