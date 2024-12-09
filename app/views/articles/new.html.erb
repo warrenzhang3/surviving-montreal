@@ -1,9 +1,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-
-        <h1>Create An Article</h1>
-
+        <h1>Post An Article</h1>
         <%= form_with model: @article, local: true, class: "needs-validation", novalidate: true do |f| %>
           <div class="mb-3">
             <%= f.label :title, class: "form-label" %>
@@ -28,7 +26,7 @@
               Please provide an image URL.
             </div>
           </div>
-          <%= f.submit "Create Article", class: "btn btn-primary" %>
+          <%= f.submit "Post Article", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>

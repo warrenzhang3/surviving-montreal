@@ -1,0 +1,26 @@
+<div class="row card-container">
+  <% @events.each do |event| %>
+    <div class="card card-styling">
+      <div id="title-card">
+        <h5 class="card-title"><%= event.title %></h5>
+        <span><i class="fa-solid fa-thumbtack"></i></span>
+      </div>
+      <% event.images.each do |image| %>
+        <%= cl_image_tag image.key%>
+      <% end %>
+      <div class="card-body">
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Author: <%= event.user.first_name %></li>
+        <div id="card-date-comment">
+          <li class="list-group-item">Published: <%= event.created_at.strftime("%B %d, %Y") %> </li>
+          <span>300 <i class="fa-solid fa-comment"></i></span>
+        </div>
+        <li class="list-group-item" id="li-tags"><span>#tag1</span> <span>#tag2</span> <span>#tag3</span></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to 'Show More Details', event_path(event), class: 'btn btn-primary', id: "show-button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
