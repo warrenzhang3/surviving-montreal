@@ -1,0 +1,31 @@
+.scroll-top {
+  text-decoration: none;
+  position: fixed;
+  visibility: visible;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: rgb(33, 146, 191);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+  }
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: white;
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, rgb(33, 146, 191), transparent 20%);
+  color: white;
+}

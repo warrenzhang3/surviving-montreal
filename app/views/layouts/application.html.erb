@@ -23,6 +23,28 @@
           });
         }
       });
+
+      document.addEventListener("turbo:load", function() {
+        const scrollTopButton = document.getElementById("scroll-top");
+
+        // Afficher le bouton lorsque l'utilisateur fait défiler vers le bas de 100 pixels
+        window.addEventListener("scroll", function() {
+          if (window.scrollY > 100) {
+      scrollTopButton.classList.add("active");
+          } else {
+      scrollTopButton.classList.remove("active");
+          }
+        });
+
+        // Faire défiler vers le haut lorsque l'utilisateur clique sur le bouton
+        scrollTopButton.addEventListener("click", function(event) {
+          event.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      });
     </script>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
@@ -30,5 +52,6 @@
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
+    <%= render "shared/floating-button" %>
   </body>
 </html>
