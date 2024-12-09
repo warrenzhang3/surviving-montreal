@@ -7,8 +7,23 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "turbo" %>
   </head>
   <body>
+    <script>
+      document.addEventListener("turbo:load", function() {
+        const searchIcon = document.getElementById("navbar-search-icon");
+        if (searchIcon) {
+          searchIcon.addEventListener("click", function() {
+      const searchInput = document.getElementById("search-input");
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+          });
+        }
+      });
+    </script>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <div class="content-wrapper container">
