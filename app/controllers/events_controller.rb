@@ -4,6 +4,13 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    if params[:query].present?
+      query = "%#{params[:query]}%"
+      @events = @events.joins(:user).where(
+        "events.title ILIKE :query OR users.first_name ILIKE :query OR users.last_name ILIKE :query",
+        query: query
+      )
+    end
   end
 
   def show
