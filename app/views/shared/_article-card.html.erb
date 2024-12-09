@@ -14,9 +14,10 @@
         <li class="list-group-item">Author: <%= article.user.first_name %></li>
         <div id="card-date-comment">
           <li class="list-group-item">Published: <%= article.created_at.strftime("%B %d, %Y") %> </li>
-          <span>300 <i class="fa-solid fa-comment"></i></span>
+          <%= link_to "#{article_path(article)}#comments", class: "btn btn-link p-0" do %>
+            <i class="fa-solid fa-comment"></i>
+          <% end %>
         </div>
-        <li class="list-group-item" id="li-tags"><span>#tag1</span> <span>#tag2</span> <span>#tag3</span></li>
       </ul>
       <div class="card-body">
         <%= link_to 'Show More Details', article_path(article), class: 'btn btn-primary', id: "show-button" %>
