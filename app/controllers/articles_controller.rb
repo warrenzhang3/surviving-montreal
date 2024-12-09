@@ -3,6 +3,13 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    if params[:query].present?
+      query = "%#{params[:query]}%"
+      @articles = @articles.joins(:user).where(
+        "articles.title ILIKE :query OR users.first_name ILIKE :query OR users.last_name ILIKE :query",
+        query: query
+      )
+    end
   end
 
   def show
