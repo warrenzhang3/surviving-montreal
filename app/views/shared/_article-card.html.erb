@@ -3,18 +3,20 @@
     <div class="card card-styling">
       <div id="title-card">
         <h5 class="card-title"><%= article.title %></h5>
-        <span><i class="fa-solid fa-thumbtack"></i></span>
       </div>
       <% article.images.each do |image| %>
-        <%= cl_image_tag image.key%>
+        <%= cl_image_tag image.key %>
       <% end %>
       <div class="card-body">
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Author: <%= article.user.first_name %></li>
-        <div id="card-date-comment">
+        <div id="card-date-comment" class="d-flex justify-content-between align-items-center">
           <li class="list-group-item">Published: <%= article.created_at.strftime("%B %d, %Y") %> </li>
-          <%= link_to "#{article_path(article)}#comments", class: "btn btn-link p-0" do %>
+          <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: 'post' }, id: "bookmark-#{article.id}" do %>
+            <i class="fa-regular fa-bookmark"></i>
+          <% end %>
+          <%= link_to "#{article_path(article)}#comments", class: "btn btn-link p-0", style: "text-decoration: none;" do %>
             <i class="fa-solid fa-comment"></i>
           <% end %>
         </div>
