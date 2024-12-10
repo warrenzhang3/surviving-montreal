@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "bookmark-#{@article.id}" do %>
+  <%= link_to bookmark_article_path(@article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: 'post' }, id: "bookmark-#{@article.id}" do %>
+    <i class="fa-solid fa-bookmark"></i>
+  <% end %>
+<% end %>

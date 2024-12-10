@@ -23,37 +23,54 @@
       </div>
     </div>
   </div>
-
 <!-- Comments Section -->
-<div class="row">
-  <div class="col-12">
-    <h3>Comments</h3>
-    <div id="comments">
-      <%= render @article.comments %>
-    </div>
-    <div class="text-end">
-      <button id="toggleCommentForm" class="btn btn-link" style="text-decoration: none;">
-        <i class="fa-solid fa-comment"></i>
-      </button>
-    </div>
-    <div id="commentFormContainer" class="highlight p-3 mt-3" style="display: none;">
-      <%= render partial: 'comments/form', locals: { article: @article } %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Comments</h3>
+          <div id="comments">
+            <%= render @article.comments %>
+          </div>
+          <div class="text-end">
+            <button id="toggleCommentForm" class="btn btn-link" style="text-decoration: none;">
+              <i class="fa-solid fa-comment"></i>
+            </button>
+          </div>
+          <div id="commentFormContainer" class="highlight p-3 mt-3" style="display: none;">
+            <%= render partial: 'comments/form', locals: { article: @article } %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-  document.addEventListener('turbo:load', () => {
-    document.body.addEventListener('click', function(event) {
-      if (event.target.closest('#toggleCommentForm')) {
-        var commentForm = document.getElementById('commentFormContainer');
-        if (commentForm.style.display === 'none' || commentForm.style.display === '') {
-          commentForm.style.display = 'block';
-          commentForm.scrollIntoView({ behavior: 'smooth' });
+<%= javascript_tag do %>
+  document.addEventListener("turbo:load", function() {
+    // Toggle comment form visibility when clicking the button
+    const toggleButton = document.getElementById('toggleCommentForm');
+    const commentFormContainer = document.getElementById('commentFormContainer');
+
+    if (toggleButton) {
+      toggleButton.addEventListener('click', function() {
+        if (commentFormContainer.style.display === 'none' || commentFormContainer.style.display === '') {
+          commentFormContainer.style.display = 'block';
+          commentFormContainer.scrollIntoView({ behavior: 'smooth' });
         } else {
-          commentForm.style.display = 'none';
+          commentFormContainer.style.display = 'none';
         }
-      }
-    });
+      });
+    }
   });
-</script>
+
+  // Collapse the form after posting the comment
+  document.addEventListener('turbo:submit-end', function(event) {
+    if (event.target.closest('#new_comment_form')) {
+      // Hide the form after a successful post
+      document.getElementById('commentFormContainer').style.display = 'none';
+      document.querySelector('#new_comment_form').reset();  // Reset the form
+    }
+  });
+<% end %>
