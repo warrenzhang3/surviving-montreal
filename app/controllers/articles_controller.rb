@@ -44,6 +44,13 @@ class ArticlesController < ApplicationController
     @bookmarked_articles = current_user.bookmarked_articles
   end
 
+  def image
+    @article = Article.find(params[:id])
+    send_data @article.image.download, type: 'image/png', disposition: 'inline'
+  rescue ActiveRecord::RecordNotFound
+    render plain: "Image not found", status: :not_found
+  end
+
   private
 
   def find_article
