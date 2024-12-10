@@ -21,10 +21,6 @@
                   <% end %>
                 </div>
               <% end %>
-              <div class="d-flex flex-wrap">
-                <span class="badge badge-pill badge-info mr-2"># TAG</span>
-                <span class="badge badge-pill badge-info"># TAG</span>
-              </div>
               <div class="d-flex justify-content-end">
                 <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: :post } do %>
                   <i class="fa-solid fa-bookmark"></i>
