@@ -3,8 +3,8 @@
   <%= form_with(model: [article, Comment.new], local: true) do |form| %>
     <div class="form-group">
       <%= form.label :description, 'Comment:' %>
-      <%= form.text_area :description, rows: 3, class: 'form-control', placeholder: 'Write your comment here...' %>
+      <%= form.text_area :description, rows: 3, class: 'form-control rounded-border', placeholder: 'Write your comment here...' %>
     </div>
-    <%= form.submit 'Post Comment', class: 'btn btn-primary mt-2' %>
+    <%= form.submit 'Post Comment', class: 'button' %>
   <% end %>
 <% end %>
