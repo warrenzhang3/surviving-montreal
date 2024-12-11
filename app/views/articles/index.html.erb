@@ -8,16 +8,16 @@
       <% end %>
       <% @articles.each do |article| %>
         <div class="col-12 mb-3">
-          <div class="card rounded-border">
+          <div class="card text-image">
             <div class="card-body">
               <h5 class="card-title">
-                <%= link_to article.title, article_path(article), class: "card-link" %>
+                <strong><%= link_to article.title, article_path(article), class: "card-link" %></strong>
               </h5>
               <h6 class="card-subtitle mb-2 text-muted">By: <%= "#{article.user.first_name} #{article.user.last_name}" %></h6>
               <% article.images.each do |image| %>
                 <div class="mb-2">
                   <%= link_to article_path(article) do %>
-                    <%= cl_image_tag image.key, class: "img-fluid rounded-border", style: "height: 200px; width: 100%; object-fit: cover;" %>
+                    <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
                   <% end %>
                 </div>
               <% end %>
