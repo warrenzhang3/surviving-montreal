@@ -5,27 +5,27 @@
     <%= f.input :first_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "" }%>
+                input_html: { autocomplete: "", class: 'text-input' }%>
     <%= f.input :last_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "" }%>
+                input_html: { autocomplete: "", class: 'text-input' }%>
     <%= f.input :year_of_arrival,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "" }%>
+                input_html: { autocomplete: "", class: 'text-input' }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email", class: 'text-input' }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", class: 'text-input' } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :profile_pic, as: :file %>
+                input_html: { autocomplete: "new-password", class: 'text-input' } %>
+    <%= f.input :profile_pic, as: :file, input_html: {class: 'text-input'}%>
   </div>
   <div class="form-actions button-styling d-flex">
     <%= f.button :submit, "Sign up", id: "sign-up"%>
