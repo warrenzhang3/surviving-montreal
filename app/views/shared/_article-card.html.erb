@@ -2,7 +2,7 @@
   <% @articles.each do |article| %>
     <div class="card card-styling">
       <div id="title-card">
-        <h5 class="card-title"><%= article.title %></h5>
+        <h5 class="card-title"><strong><%= article.title %></strong></h5>
       </div>
       <% article.images.each do |image| %>
         <%= cl_image_tag image.key %>
