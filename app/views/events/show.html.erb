@@ -19,8 +19,7 @@
     </div>
   </div>
 </div>
-<div class="d-flex">
-  <%= button_to "Attending", going_event_path(@event), method: :post, class: "btn btn-primary mr-2" %>
-  <%= link_to "Unavailable", events_path, class: "btn btn-danger" %>
+<div class="d-flex button-styling">
+  <%= button_to "Attending", going_event_path(@event), method: :post, class: "btn btn-primary mr-2", id: "attending" %>
+  <%= link_to "Unavailable", events_path, class: "btn btn-danger", id: "unavailable"%>
 </div>
-        
