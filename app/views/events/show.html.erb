@@ -1,22 +1,25 @@
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <h1><%= @event.title %></h1>
-        <p class="text-muted">Organized by <%= @event.user.first_name %></p>
-        <p><%= @event.description %></p>
-        <div class="mb-3">
-          <% @event.images.each do |image| %>
-            <%= cl_image_tag image.key, class: "img-fluid", style: "height: 300px; width: 100%; object-fit: cover;" %>
-          <% end %>
-        </div>
-        <p><strong>Location:</strong> <%= @event.location %></p>
-        <p><strong>Date:</strong> <%= @event.event_date %></p>
-        <p><strong>Number of People:</strong> <%= @event.number_of_people %> attending</p>
-
-        <div class="d-flex">
-          <%= button_to "Attending", going_event_path(@event), method: :post, class: "btn btn-primary mr-2" %>
-          <%= link_to "Unavailable", events_path, class: "btn btn-danger" %>
+      <div class="col-12 mb-3">
+        <div class="card text-image">
+          <div class="card-body">
+            <h1><%= @event.title %></h1>
+            <p class="text-muted">Organized by: <%= @event.user.first_name %></p>
+            <p><%= @event.description %></p>
+            <div class="mb-3">
+              <% @event.images.each do |image| %>
+                <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 300px; width: 100%; object-fit: cover;" %>
+              <% end %>
+            </div>
+            <p><strong>Location:</strong> <%= @event.location %></p>
+            <p><strong>Date:</strong> <%= @event.event_date %></p>
+            <p><strong>Number of People:</strong> <%= @event.number_of_people %> attending</p>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="d-flex">
+  <%= button_to "Attending", going_event_path(@event), method: :post, class: "btn btn-primary mr-2" %>
+  <%= link_to "Unavailable", events_path, class: "btn btn-danger" %>
+</div>
