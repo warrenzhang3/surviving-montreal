@@ -1,7 +1,8 @@
-<%= turbo_stream.append 'comments', partial: 'comments/comment', locals: { comment: @comment } %>
+<%# app/views/comments/create.turbo_stream.erb %>
+<%= turbo_stream.append dom_id(@article, :comments), partial: 'comments/comment', locals: { comment: @comment } %>
 
-<%= turbo_stream.replace 'comment_form_container' do %>
-  <div id="commentFormContainer" class="highlight p-3 mt-3" style="display: none;">
+<%= turbo_stream.replace dom_id(@article, :comment_form_container) do %>
+  <div class="commentFormContainer highlight p-3 mt-3" style="display: none;">
     <%= render partial: 'comments/form', locals: { article: @article } %>
   </div>
 <% end %>

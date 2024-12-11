@@ -1,10 +1,16 @@
 <%# app/views/comments/_form.html.erb %>
-<%= turbo_frame_tag "new_comment_form" do %>
-  <%= form_with(model: [article, Comment.new], local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :description, 'Comment:' %>
-      <%= form.text_area :description, rows: 3, class: 'form-control text-input', placeholder: 'Write your comment here...' %>
-    </div>
-    <%= form.submit 'Post Comment', class: 'button' %>
+<% if user_signed_in? %>
+  <%= turbo_frame_tag "new_comment_form" do %>
+    <%= form_with(model: [article, Comment.new], local: true, html: { data: { action: "turbo:submit-end->comment-toggle#resetForm" } }) do |form| %>
+      <div class="form-group">
+        <%# form.label :description, 'Comment:' %>
+        <%= form.text_area :description, rows: 3, class: 'form-control text-input', placeholder: 'Leave a comment...' %>
+      </div>
+      <%= form.submit 'Post Comment', class: 'btn btn-primary mt-2' %>
+    <% end %>
   <% end %>
+<% else %>
+  <div class="alert alert-info">
+    Sign in to leave a comment.
+  </div>
 <% end %>
