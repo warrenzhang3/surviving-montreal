@@ -4,9 +4,10 @@
 <body>
   <div class="container">
     <h1>Bookmarked Articles</h1>
-      <div class="row">
-    <% @bookmarked_articles.each do |article| %>
-      <%= render "shared/articles-partial", article:article, bookmark:false%>
-    <% end %>
+    <div class="row">
+      <% @bookmarked_articles.each do |article| %>
+        <%= render "shared/articles-partial", article:article, bookmark:false%>
+      <% end %>
+    </div>
   </div>
 </body>
