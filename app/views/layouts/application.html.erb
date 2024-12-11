@@ -1,8 +1,17 @@
+<%# app/views/layouts/application.html.erb %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SurvivingMontreal</title>
+    <%= favicon_link_tag 'sm-favicon.png', :rel => 'shortcut icon', :type => 'image/png' %>
+    <%# <title>Surviving Montreal</title> %>
+    <meta property="og:title" content="Your Page Title" />
+    <meta property="og:description" content="A brief description of your page." />
+    <meta property="og:image" content="https://survivingmontreal.online/images/ogsurvmtl.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <title><%= content_for?(:title) ? yield(:title) : "Surviving Montreal: The Ultimate Blog to Thrive as a Newcomer" %></title>    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Surviving Montreal is your ultimate guide to thrive in Montreal as a newcomer. Discover tips, stories, and insights to help you navigate and enjoy life in this vibrant city.' %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
