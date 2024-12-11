@@ -11,7 +11,11 @@
     <meta property="og:image:height" content="630" />
     <title><%= content_for?(:title) ? yield(:title) : "Surviving Montreal: The Ultimate Blog to Thrive as a Newcomer" %></title>    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Surviving Montreal is your ultimate guide to thrive in Montreal as a newcomer. Discover tips, stories, and insights to help you navigate and enjoy life in this vibrant city.' %>">
+    <%= render 'shared/ios_pwa_links' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
