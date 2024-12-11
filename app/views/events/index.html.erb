@@ -6,7 +6,7 @@
     <% @events.each do |event| %>
       <div class="col-12 mb-3">
         <%= link_to event_path(event), class: "card-link" do %>
-          <div class="card">
+          <div class="card text-image">
             <div class="card-body">
               <h5 class="card-title"><%= event.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= event.user.first_name %></h6>
@@ -15,7 +15,7 @@
               <p class="card-text"><%= event.number_of_people %> people attending</p>
               <% event.images.each do |image| %>
                 <div class="mb-2">
-                  <%= cl_image_tag image.key, class: "img-fluid", style: "height: 200px; width: 100%; object-fit: cover;" %>
+                  <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
                 </div>
               <% end %>
             </div>

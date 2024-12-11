@@ -18,19 +18,19 @@
   </div>
 
   <div class="form-inputs">
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :year_of_arrival, as: :date, required: true %>
-    <%= f.input :email, required: true %>
+    <%= f.input :first_name, required: true, autofocus: true, input_html: { class: 'text-input' } %>
+    <%= f.input :last_name, required: true, input_html: { class: 'text-input' } %>
+    <%= f.input :year_of_arrival, as: :date, required: true, input_html: { class: 'text-input' } %>
+    <%= f.input :email, required: true, input_html: { class: 'text-input' } %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password, hint: "Leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true %>
-    <%= f.input :profile_pic, as: :file %>
+    <%= f.input :password, hint: "Leave it blank if you don't want to change it", required: false, input_html: { class: 'text-input' } %>
+    <%= f.input :password_confirmation, required: false, input_html: { class: 'text-input' } %>
+    <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true, input_html: { class: 'text-input' } %>
+    <%= f.input :profile_pic, as: :file, input_html: { class: 'text-input' } %>
   </div>
 
   <div class="form-actions">
