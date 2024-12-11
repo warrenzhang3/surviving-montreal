@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_06_170520) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_10_160218) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,10 +64,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_170520) do
 
   create_table "badges", force: :cascade do |t|
     t.string "name"
-    t.string "icon"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "bookmarks", id: false, force: :cascade do |t|
@@ -101,8 +101,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_170520) do
   create_table "events_users", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
-    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
-    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
@@ -122,7 +120,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_170520) do
   end
 
   create_table "user_badges", force: :cascade do |t|
-    t.date "earned_date"
     t.bigint "user_id", null: false
     t.bigint "badge_id", null: false
     t.datetime "created_at", null: false
