@@ -1,0 +1,100 @@
+.button-styling {
+
+  input,
+  button {
+    background-color: rgb(33, 146, 191);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: white;
+
+    &:hover {
+      transform: scale(1.2);
+      background-color: rgb(33, 146, 191);
+      transform: translateX(-5px);
+    }
+  }
+
+  #unavailable {
+    margin-left: 5px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(5px);
+    }
+  }
+
+  #cancel-account {
+    margin-left: 5px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s ease;
+    background-color: red;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(-5px);
+    }
+  }
+
+
+  #back {
+    background-color: rgb(33, 146, 191);
+    border: none;
+    margin-left: 5px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(5px);
+    }
+  }
+
+  #log-in {
+    background-color: rgb(25, 135, 84);
+    border: none;
+    margin-left: 5px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(-3px);
+    }
+  }
+
+  #sign-up {
+    background-color: rgb(33, 146, 191);
+    border: none;
+    margin-left: 5px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(-3px);
+    }
+  }
+
+  #forget-password {
+    background-color: red;
+    border: none;
+    margin-left: 5px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(5px);
+    }
+  }
+}

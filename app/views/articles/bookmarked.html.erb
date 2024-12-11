@@ -1,23 +1,12 @@
+<%# app/views/articles/bookmarked.html.erb %>
+<% content_for :title, "Surviving Montreal: Your Bookmarked Articles" %>
+
 <body>
   <div class="container">
     <h1>Bookmarked Articles</h1>
-    <div class="row">
-      <% @bookmarked_articles.each do |article| %>
-        <div class="col-12 mb-3">
-          <%= link_to article_path(article), class: "card-link" do %>
-            <div class="card text-image">
-              <div class="card-body">
-                <h5 class="card-title"><%= article.title %></h5>
-                <h6 class="card-subtitle mb-2 text-muted">By: <%= "#{article.user.first_name} #{article.user.last_name}" %></h6>
-                <% article.images.each do |image| %>
-                  <div class="mb-2">
-                    <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+      <div class="row">
+    <% @bookmarked_articles.each do |article| %>
+      <%= render "shared/articles-partial", article:article, bookmark:false%>
+    <% end %>
   </div>
+</body>
