@@ -3,6 +3,7 @@
 puts "Cleaning database..."
 Article.destroy_all
 Event.destroy_all
+Badge.destroy_all
 User.destroy_all
 
 puts "Creating users..."
@@ -108,3 +109,29 @@ generic_profile_pic_url = "https://img.freepik.com/free-vector/blue-circle-with-
 ribot.profile_pic.attach(io: URI.parse(generic_profile_pic_url).open, filename: "generic_profile_pic.jpg", content_type: "image/jpeg")
 
 puts "Created Ribot's user account"
+
+puts 'creating badges'
+
+Badge.create!(
+  name: 'First Article',
+  description: 'Congratulations! You’ve taken your first step into the world of writing by publishing your very first article. Keep up the great work and continue sharing your insights!',
+  image: 'first_article.png'
+)
+
+Badge.create!(
+  name: 'Attend Your First Event',
+  description: 'Well done! You’ve taken the initiative to attend your first event. Keep participating and making the most out of these experiences. Your journey has just begun!',
+  image: 'first_event.png'
+)
+
+Badge.create!(
+  name: 'Survive Your First Winter',
+  description: 'Bravo! You’ve successfully navigated through your first winter. From chilly winds to snowy days, you’ve proven your resilience. Keep embracing the adventure!',
+  image: 'first_winter.png'
+)
+
+Badge.create!(
+  name: 'First Event Create',
+  description: 'Fantastic job! You’ve successfully organized and created your very first event. This badge is a testament to your initiative and leadership. Keep up the great work and continue bringing people together!',
+  image: 'first_event_create.png'
+)
