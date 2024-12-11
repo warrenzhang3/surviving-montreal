@@ -1,19 +1,21 @@
-  <div class="row">
-    <% @bookmarked_articles.each do |article| %>
       <div class="col-12 mb-3">
-        <%= link_to article_path(article), class: "card-link" do %>
+        <%= link_to article_path(article) do %>
           <div class="card text-image">
             <div class="card-body">
-              <h5 class="card-title"><%= article.title %></h5>
+              <h5 class="card-title card-title-link"><strong><%= article.title%></strong></h5>
               <h6 class="card-subtitle mb-2 text-muted">By: <%= "#{article.user.first_name} #{article.user.last_name}" %></h6>
               <% article.images.each do |image| %>
                 <div class="mb-2">
                   <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
                 </div>
+                <% if bookmark %>
+                  <div class="d-flex justify-content-end">
+                    <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: :post } do %>
+                      <i class="fa-solid fa-bookmark"></i>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
-            </div>
           </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
