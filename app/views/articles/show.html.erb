@@ -1,4 +1,7 @@
 <%# app/views/articles/show.html.erb %>
+<% content_for :title, "Surviving Montreal: " + @article.title %>
+<% content_for :meta_description, @article.description.truncate(160) %>
+
   <div class="container">
     <div class="row">
       <div class="col-12 mb-3">
