@@ -3,10 +3,11 @@
   <%= turbo_frame_tag "new_comment_form" do %>
     <%= form_with(model: [article, Comment.new], local: true, html: { data: { action: "turbo:submit-end->comment-toggle#resetForm" } }) do |form| %>
       <div class="form-group">
-        <%# form.label :description, 'Comment:' %>
         <%= form.text_area :description, rows: 3, class: 'form-control text-input', placeholder: 'Leave a comment...' %>
       </div>
-      <%= form.submit 'Post Comment', class: 'btn btn-primary mt-2' %>
+      <div class="d-flex justify-content-center button-styling">
+        <%= form.submit 'Post Comment', class: 'btn btn-primary mt-2' %>
+      </div>
     <% end %>
   <% end %>
 <% else %>
