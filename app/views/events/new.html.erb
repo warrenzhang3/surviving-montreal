@@ -50,26 +50,28 @@
               Please provide the number of people.
             </div>
           </div>
-
-          <%= f.submit "Plan Event", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+        </div>
+        <div class="button-styling">
+          <%= f.submit "Plan Event", class: 'btn btn-primary'%>
+        </div>
+      <% end %>
     </div>
   </div>
-  <script>
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
-        var forms = document.getElementsByClassName('needs-validation');
-        var validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-  </script>
+</div>
+<script>
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
