@@ -1,0 +1,4 @@
+<!-- app/views/badges/show.html.erb -->
+<h1><%= @badge.name %></h1>
+<p><%= @badge.description %></p>
+<%= image_tag asset_path(@badge.image), alt: @badge.name, class: "card-img-top" if @badge.image.present? %>
