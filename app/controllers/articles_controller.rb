@@ -25,7 +25,14 @@ class ArticlesController < ApplicationController
     @article.user = current_user
 
     if @article.save
-      redirect_to articles_path, notice: "Successful!"
+      if current_user.articles.count >= 1
+        current_user.award_badge('First Article')
+        current_user.check_winter_survival_badge
+        flash[:notice] = "Congratulations! You've received the 'First Article' badge."
+      elsif current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
+        flash[:notice] = "Congratulations! You've also received the 'Survive Your First Winter' badge."
+      end
+      redirect_to articles_path, notice: "Article created successfully!"
     else
       render :new, status: :unprocessable_entity
     end

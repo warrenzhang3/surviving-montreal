@@ -1,0 +1,8 @@
+<!-- app/views/users/show.html.erb -->
+<h2>details</h2>
+<ul>
+  <% current_user.badges.each do |badge| %>
+    <li><%= badge.name %> - <%= badge.description %></li>
+    <%= image_tag asset_path(badge.image), alt: badge.name if badge.image.present? %>
+  <% end %>
+</ul>

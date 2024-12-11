@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   end
 
   get 'my_events' => 'events#my_events', as: :my_events
+
+  resources :badges, only: [:show]
+  get 'my_badges', to: 'users#my_badges', as: 'my_badges'
+  resources :users, only: [:show]
 end
