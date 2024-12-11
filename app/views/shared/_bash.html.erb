@@ -1,5 +1,5 @@
 <% @user.badges.each do |badge| %>
-  <div class="card">
+  <div class="card styling-image">
     <%= link_to badge_path(badge) do %>
       <%= image_tag asset_path(badge.image), alt: badge.name, class: "card-img-top" if badge.image.present?%>
     <% end %>

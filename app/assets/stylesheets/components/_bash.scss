@@ -1,0 +1,89 @@
+.bash-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .styling-image {
+    width: 100px;
+    margin: 0 auto;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translateX(5px);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+      // border: 1px solid blue;
+      padding: 20px;
+      background-color: rgb(33, 146, 191);
+    }
+  }
+}
+
+/* Texte défilant */
+.messagedefilant {
+  display: block;
+  margin: 40px auto;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  height: 60px;
+}
+
+.messagedefilant div {
+  position: absolute;
+  min-width: 100%;
+  /* au minimum la largeur du conteneur */
+}
+
+.messagedefilant div span,
+.messagedefilant div:after {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  white-space: nowrap;
+  top: 0;
+}
+
+.messagedefilant div span {
+  animation: defilement 6s infinite linear;
+  background: #cde;
+}
+
+.messagedefilant div:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(data-text);
+  animation: defilement2 6s infinite linear;
+  background: #edc;
+}
+
+@keyframes defilement {
+  0% {
+    margin-left: 0;
+  }
+
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@keyframes defilement2 {
+  0% {
+    margin-left: 100%;
+  }
+
+  100% {
+    margin-left: 0%;
+  }
+}
