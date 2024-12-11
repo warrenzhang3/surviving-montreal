@@ -20,8 +20,9 @@
     justify-content: space-between;
     align-items: center;
 
+
     h5 {
-      color: rgb(142, 142, 147);
+      color: rgb(0, 0, 0);
     }
 
     i {
@@ -40,7 +41,6 @@
     }
 
     #card-date-comment {
-      // background-color: red;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,7 +59,7 @@
     a {
       background-color: rgb(33, 146, 191);
       border: none;
-      border-radius: 5px;
+      border-radius: 10%;
       cursor: pointer;
       transition: 0.3s ease;
 
