@@ -1,13 +1,8 @@
 <%# app/views/comments/create.turbo_stream.erb %>
-<%= turbo_stream.append 'comments', partial: 'comments/comment', locals: { comment: @comment } %>
-<%= turbo_stream.replace 'new_comment_form' do %>
-  <%= turbo_frame_tag "new_comment_form" do %>
-    <%= form_with(model: [ @article, Comment.new ], local: true) do |form| %>
-      <div class="form-group">
-        <%= form.label :description %>
-        <%= form.text_area :description, rows: 3, class: 'form-control', placeholder: 'Write your comment here...' %>
-      </div>
-      <%= form.submit 'Post Comment', class: 'btn btn-primary mt-2' %>
-    <% end %>
-  <% end %>
+<%= turbo_stream.append dom_id(@article, :comments), partial: 'comments/comment', locals: { comment: @comment } %>
+
+<%= turbo_stream.replace dom_id(@article, :comment_form_container) do %>
+  <div class="commentFormContainer highlight p-3 mt-3" style="display: none;">
+    <%= render partial: 'comments/form', locals: { article: @article } %>
+  </div>
 <% end %>

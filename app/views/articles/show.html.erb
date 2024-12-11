@@ -23,37 +23,26 @@
       </div>
     </div>
   </div>
-
 <!-- Comments Section -->
 <div class="row">
-  <div class="col-12">
-    <h3>Comments</h3>
-    <div id="comments">
-      <%= render @article.comments %>
-    </div>
-    <div class="text-end">
-      <button id="toggleCommentForm" class="btn btn-link" style="text-decoration: none;">
-        <i class="fa-solid fa-comment"></i>
-      </button>
-    </div>
-    <div id="commentFormContainer" class="highlight p-3 mt-3" style="display: none;">
-      <%= render partial: 'comments/form', locals: { article: @article } %>
+  <div class="col-12 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Comments</h3>
+        <div id="<%= dom_id(@article, :comments) %>">
+          <%= render @article.comments %>
+        </div>
+        <div data-controller="comment-toggle">
+          <div class="text-end">
+            <button class="toggleCommentForm btn btn-link" data-action="click->comment-toggle#toggleForm" style="text-decoration: none;">
+              <i class="fa-solid fa-comment"></i>
+            </button>
+          </div>
+          <div class="commentFormContainer highlight p-3 mt-3 d-none" data-comment-toggle-target="formContainer">
+            <%= render partial: 'comments/form', locals: { article: @article } %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('turbo:load', () => {
-    document.body.addEventListener('click', function(event) {
-      if (event.target.closest('#toggleCommentForm')) {
-        var commentForm = document.getElementById('commentFormContainer');
-        if (commentForm.style.display === 'none' || commentForm.style.display === '') {
-          commentForm.style.display = 'block';
-          commentForm.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          commentForm.style.display = 'none';
-        }
-      }
-    });
-  });
-</script>

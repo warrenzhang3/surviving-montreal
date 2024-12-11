@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:index, :show, :new, :create] do
     post 'bookmark', on: :member
+    get 'image', on: :member, to: 'articles#image' # Custom route for image requests
     resources :comments, only: :create
     collection do
       get 'bookmarked'
