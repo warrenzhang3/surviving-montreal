@@ -19,24 +19,15 @@
     <%= f.input :last_name, required: true, input_html: { class: 'text-input' } %>
     <%= f.input :year_of_arrival, as: :date, required: true, input_html: { class: 'text-input' } %>
     <%= f.input :email, required: true, input_html: { class: 'text-input' } %>
-
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
     <%= f.input :password, hint: "Leave it blank if you don't want to change it", required: false, input_html: { class: 'text-input' } %>
     <%= f.input :password_confirmation, required: false, input_html: { class: 'text-input' } %>
     <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true, input_html: { class: 'text-input' } %>
     <%= f.input :profile_pic, as: :file, input_html: { class: 'text-input' } %>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="edit-card-button d-flex button-styling">
+    <div class="button-styling"> <%= f.button :submit, "Update" %> <%= button_to "Cancel Your Account", "#", class: "btn btn-danger", id: "cancel-account", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" } %> <%= link_to "Back", my_events_path, class: "btn btn-primary", id: "back" %></div>
   </div>
 <% end %>
-<h3>Cancel my account</h3>
-<div class="edit-card-button d-flex">
-  <div class="button-styling">Unhappy? <%= button_to "Cancel", "#", class: "btn btn-danger", id: "cancel-account", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" } %></div>
-  <div class="mt-4 button-styling">
-    <%= link_to "Back", my_events_path, class: "btn btn-primary", id: "back" %>
-  </div>
-</div>
