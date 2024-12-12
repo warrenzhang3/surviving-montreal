@@ -26,29 +26,32 @@ class EventsController < ApplicationController
     @event.user = current_user
 
     if @event.save
-      if current_user.events.count >= 1
+      message = "Event created successfully!"
+      if current_user.events.count == 1 && !current_user.badges.exists?(name: 'First Event Create')
         current_user.award_badge('First Event Create')
         current_user.check_winter_survival_badge
-        flash[:notice] = "Congratulations! You've received the 'Event Create' badge."
+        message += " You have earned a new badge!"
       elsif current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
-        flash[:notice] = "Congratulations! You've also received the 'Survive Your First Winter' badge."
+        message = "Congratulations! You've also received the 'Survive Your First Winter' badge."
       end
-      redirect_to events_path, notice: "Event created successfully!"
+      redirect_to events_path, notice: message
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def going
+    message = "Event created successfully!"
     @event = Event.find(params[:id])
     unless current_user.events.include?(@event)
       current_user.events << @event
-      if current_user.events.count >= 1
+      if current_user.events.count == 1 && !current_user.badges.exists?(name: 'Attend Your First Event')
         current_user.award_badge('Attend Your First Event')
         current_user.check_winter_survival_badge
+        message += " You have earned a new badge!"
       end
     end
-    redirect_to my_events_path
+    redirect_to my_events_path, notice: message
   end
 
   def my_events
