@@ -77,3 +77,4 @@ end
 gem "cloudinary"
 gem 'faker'
 gem 'fake_picture'
+gem 'toastr-rails'
