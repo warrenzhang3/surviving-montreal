@@ -28,4 +28,8 @@ class User < ApplicationRecord
       award_badge('Survive Your First Winter')
     end
   end
+
+  def badge_count
+    badges.count
+  end
 end
