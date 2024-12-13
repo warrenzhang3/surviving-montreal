@@ -1,14 +1,12 @@
 <% @user.badges.each do |badge| %>
-  <div class="card mb-3">
-    <div class="card-body d-flex align-items-center">
+  <div class="bash-card">
       <%= link_to badge_path(badge) do %>
         <%= image_tag asset_path(badge.image), alt: badge.name, class: "badge-image mr-3", if: badge.image.present? %>
       <% end %>
-      <div class="text-center flex-grow-1">
+      <div>
         <%= link_to badge_path(badge), class: "badge-name-link" do %>
           <h5 class="card-title mb-0"><%= badge.name %></h5>
         <% end %>
-      </div>
     </div>
   </div>
 <% end %>

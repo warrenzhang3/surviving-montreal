@@ -1,8 +1,25 @@
+.bashes-title{
+  h1{
+    text-align: center;
+    color: rgb(33, 146, 191);
+  }
+}
+
 .bash-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 5px solid rgb(33, 146, 191);
+
+  a{
+    color: rgb(33, 146, 191);
+  }
+
+  .card-container{
+    flex-direction: column;
+  }
 
   .styling-image {
     width: 100px;
@@ -22,7 +39,7 @@
       border-radius: 50%;
       // border: 1px solid blue;
       padding: 20px;
-      background-color: rgb(33, 146, 191);
+      // background-color: rgb(33, 146, 191);
     }
   }
 }
