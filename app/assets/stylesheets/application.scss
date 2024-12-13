@@ -22,43 +22,69 @@
 body {
   position: relative;
 }
+
 .badge-image {
-  width: 50px; /* Adjust the width as needed */
+  width: 50px;
+  /* Adjust the width as needed */
   height: auto;
-  margin-right: 10px; /* Adds space between the image and text */
+  margin-right: 10px;
+  /* Adds space between the image and text */
 }
 
 .badge-name-link {
-  text-decoration: none; /* Removes the underline from the link */
+  text-decoration: none;
+  /* Removes the underline from the link */
 }
 
 .card-body .text-center {
-  text-align: center; /* Centers the text within the flex item */
-  flex-grow: 1; /* Ensures this div takes up available space */
+  text-align: center;
+  /* Centers the text within the flex item */
+  flex-grow: 1;
+  /* Ensures this div takes up available space */
 }
 
 .small-image {
-  width: 50%; /* Adjust the width as needed */
+  width: 50%;
+  /* Adjust the width as needed */
   display: block;
-  margin: 0 auto; /* Center the image */
+  margin: 0 auto;
+  /* Center the image */
 }
+
 .badge-show-image {
-  width: 50%; /* Adjust the width to make the image smaller */
-  height: auto; /* Maintain aspect ratio */
+  width: 50%;
+  /* Adjust the width to make the image smaller */
+  height: auto;
+  /* Maintain aspect ratio */
   display: block;
-  margin: 0 auto; /* Center the image within its container */
+  margin: 0 auto;
+  /* Center the image within its container */
 }
 
 .custom-card {
-  border-radius: 15px; /* Adjust the radius as needed */
-  overflow: hidden; /* Ensures content stays within the rounded corners */
+  border-radius: 15px;
+  /* Adjust the radius as needed */
+  overflow: hidden;
+  /* Ensures content stays within the rounded corners */
 }
+
 .card-link {
   text-decoration: none;
 }
+
 .card-body {
   text-decoration: none;
 }
+
 .a {
   text-decoration: none;
+}
+
+// batch count alert style
+.badge {
+  background-color: red;
+  color: white;
+  padding: 0.4em 0.7em;
+  border-radius: 50%;
+  margin-left: 0.5em;
 }

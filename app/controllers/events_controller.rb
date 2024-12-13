@@ -31,7 +31,8 @@ class EventsController < ApplicationController
         current_user.award_badge('First Event Create')
         current_user.check_winter_survival_badge
         message += " You have earned a new badge!"
-      elsif current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
+      end
+      if current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
         message = "Congratulations! You've also received the 'Survived Your First Winter' badge."
       end
       redirect_to events_path, notice: message
@@ -41,7 +42,7 @@ class EventsController < ApplicationController
   end
 
   def going
-    message = "Event created successfully!"
+    message = "Bookings successfully!"
     @event = Event.find(params[:id])
     unless current_user.events.include?(@event)
       current_user.events << @event
@@ -49,6 +50,9 @@ class EventsController < ApplicationController
         current_user.award_badge('Attend Your First Event')
         current_user.check_winter_survival_badge
         message += " You have earned a new badge!"
+      end
+      if current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
+        message = "Congratulations! You've also received the 'Survived Your First Winter' badge."
       end
     end
     redirect_to my_events_path, notice: message
