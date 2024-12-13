@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
         current_user.check_winter_survival_badge
         message += " You have earned a new badge!"
       elsif current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
-        flash[:notice] = "Congratulations! You've also received the 'Survive Your First Winter' badge."
+        # flash[:notice] = "Congratulations! You've also received the 'Survive Your First Winter' badge."
       end
       redirect_to articles_path, notice: message
     else

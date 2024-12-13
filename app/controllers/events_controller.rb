@@ -32,7 +32,7 @@ class EventsController < ApplicationController
         current_user.check_winter_survival_badge
         message += " You have earned a new badge!"
       elsif current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
-        message = "Congratulations! You've also received the 'Survive Your First Winter' badge."
+        message = "Congratulations! You've also received the 'Survived Your First Winter' badge."
       end
       redirect_to events_path, notice: message
     else

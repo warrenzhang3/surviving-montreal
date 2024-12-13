@@ -1,3 +1,4 @@
+<%# app/views/shared/_article-card.html.erb %>
 <div class="row card-container">
   <% @articles.each do |article| %>
     <div class="card card-styling">
@@ -5,23 +6,26 @@
         <h5 class="card-title"><strong><%= article.title %></strong></h5>
       </div>
       <% article.images.each do |image| %>
-        <%= cl_image_tag image.key %>
+        <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
       <% end %>
-      <div class="card-body">
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Author: <%= article.user.first_name %></li>
-        <div id="card-date-comment" class="d-flex justify-content-between align-items-center">
-          <li class="list-group-item">Published: <%= article.created_at.strftime("%B %d, %Y") %> </li>
-          <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: 'post' }, id: "bookmark-#{article.id}" do %>
-            <i class="fa-regular fa-bookmark"></i>
-          <% end %>
-          <%= link_to "#{article_path(article)}#comments", class: "btn btn-link p-0", style: "text-decoration: none;" do %>
-            <i class="fa-solid fa-comment"></i>
-          <% end %>
+      <div class="card-body"></div>
+      <ul class="list-group list-group-flush border-0">
+        <li class="list-group-item border-0">Author: <%= article.user.first_name %></li>
+        <div id="card-date-comment" class="d-flex justify-content-between align-items-center w-100">
+          <li class="list-group-item border-0">
+            <span class="badge badge-pill badge-info" style="background-color: lightblue; border-radius: 20px;">Article</span>
+          </li>
+          <li class="list-group-item border-0 d-flex align-items-center" style="text-decoration: none;">
+            <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: 'post' }, id: "bookmark-#{article.id}", style: "text-decoration: none; margin-right: 10px;" do %>
+              <i class="fa-regular fa-bookmark"></i>
+            <% end %>
+            <%= link_to "#{article_path(article)}#comments", class: "btn btn-link p-0", style: "text-decoration: none;" do %>
+              <i class="fa-solid fa-comment"></i>
+            <% end %>
+          </li>
         </div>
       </ul>
-      <div class="card-body">
+      <div class="card-body d-flex justify-content-center">
         <%= link_to 'Show More Details', article_path(article), class: 'btn btn-primary', id: "show-button" %>
       </div>
     </div>

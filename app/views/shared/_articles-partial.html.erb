@@ -1,24 +1,32 @@
+<%# app/views/shared/_articles-partial.html.erb %>
   <div class="row">
-    <%= link_to article_path(article) do %>
+    <%= link_to article_path(article), style: "text-decoration: none;" do %>
       <div class="col-12 mb-3">
         <div class="card text-image">
           <div class="card-body">
-            <h5 class="card-title card-title-link"><strong><%= article.title%></strong></h5>
+            <h5 class="card-title card-title-link"><strong><%= article.title %></strong></h5>
             <h6 class="card-subtitle mb-2 text-muted">By: <%= "#{article.user.first_name} #{article.user.last_name}" %></h6>
             <% article.images.each do |image| %>
               <div class="mb-2">
                 <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
               </div>
-              <% if bookmark %>
-                <div class="d-flex justify-content-end">
-                  <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: :post } do %>
+            <% end %>
+            <% if bookmark %>
+              <div id="card-date-comment" class="d-flex justify-content-between align-items-center">
+                <span class="badge badge-pill badge-info" style="background-color: lightblue; border-radius: 20px;">Article</span>
+                <div class="d-flex" style="text-decoration: none;">
+                  <%= link_to bookmark_article_path(article), method: :post, remote: true, class: 'btn btn-link p-0', data: { turbo_method: :post }, style: "text-decoration: none; margin-right: 10px;" do %>
                     <i class="fa-solid fa-bookmark"></i>
                   <% end %>
+                  <%= link_to "#{article_path(article)}#comments", class: "btn btn-link p-0", style: "text-decoration: none;" do %>
+                    <i class="fa-solid fa-comment"></i>
+                  <% end %>
                 </div>
-              <% end %>
+              </div>
             <% end %>
+          </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
