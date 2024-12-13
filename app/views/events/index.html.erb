@@ -1,7 +1,7 @@
 <%# app/views/events/index.html.erb  %>
 
 <% content_for :title, "Surviving Montreal: Upcoming Events" %>
-  <h1>Events</h1>
+  <h1 class="title-styling">Events</h1>
 <div class="container">
   <div class="row">
     <%= render "/shared/search" %>
@@ -10,17 +10,19 @@
         <%= link_to event_path(event), class: "card-link" do %>
           <div class="card text-image">
             <div class="card-body">
+            <span class="badge badge-pill badge-primary" style="background-color: #007bff; color: white; border-radius: 20px; margin-bottom:10px;">Event</span>
               <h5 class="card-title"><%= event.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= event.user.first_name %></h6>
+               <% event.images.each do |image| %>
+                <div class="mb-2">
+                  <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
+
+                </div>
+              <% end %>
               <p class="card-text"><%= event.location %></p>
               <p class="card-text"><small class="text-muted"><%= event.event_date %></small></p>
               <p class="card-text"><%= event.number_of_people %> people attending</p>
-              <% event.images.each do |image| %>
-                <div class="mb-2">
-                  <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
-                    <span class="badge badge-pill badge-primary" style="background-color: #007bff; color: white; border-radius: 20px;">Event</span>
-                </div>
-              <% end %>
+
             </div>
           </div>
         <% end %>
