@@ -1,7 +1,5 @@
 .card-container {
-  background-color: rgb(33, 146, 191);
   margin-top: 20px;
-  border-radius: 10px;
 }
 
 .card-styling {
@@ -9,9 +7,11 @@
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba($color: #9b9b9b, $alpha: 0.7);
+  //box-shadow: 2px 2px 8px rgba(170 170 170 0.7);
 
   img {
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   #title-card {
@@ -36,7 +36,7 @@
         background: red;
         color: white;
         padding: 5px;
-        border-radius: 20px;
+        border-radius: 10px;
       }
     }
 
@@ -60,7 +60,7 @@
     a {
       background-color: rgb(33, 146, 191);
       border: none;
-      border-radius: 20px;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.3s ease;
 
@@ -74,4 +74,12 @@
 .card-title-link {
   color: black;
   text-decoration: none;
+}
+
+.card-title {
+  text-transform: uppercase;
+}
+
+.card-paragraph{
+  text-align: justify;
 }

@@ -22,9 +22,6 @@
       <li class="nav-item">
         <%= link_to "Plan an Event", new_event_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "My Events", my_events_path, class: "nav-link" %>
-      </li>
       <li class="nav-item" id="badge-link">
         <% if user_signed_in? %>
           <%= link_to 'My Badges', my_badges_path, class: "nav-link" %>

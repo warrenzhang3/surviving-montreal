@@ -2,6 +2,8 @@
   <h1>Hey <%= current_user ? current_user.name : "Guest" %>! <i class="fa-regular fa-face-smile"></i></h1>
   <p>How are you surviving today?</p>
   <%= render "/shared/search" %>
+  <h1>ARTICLES</h1>
   <%= render "/shared/article-card" %>
+  <h1>EVENTS</h1>
   <%= render "/shared/event-card" %>
 </div>

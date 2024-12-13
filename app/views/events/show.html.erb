@@ -7,7 +7,7 @@
         <div class="card-body">
           <h1><%= @event.title %></h1>
           <p class="text-muted">Organized by: <%= @event.user.first_name %></p>
-          <p><%= @event.description %></p>
+          <p class="card-paragraph"><%= @event.description %></p>
           <div class="mb-3">
             <% @event.images.each do |image| %>
               <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 300px; width: 100%; object-fit: cover;" %>
