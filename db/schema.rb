@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_10_160218) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_13_161843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -101,8 +101,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_10_160218) do
   create_table "events_users", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
-    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
-    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
@@ -126,6 +124,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_10_160218) do
     t.bigint "badge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "seen", default: false, null: false
     t.index ["badge_id"], name: "index_user_badges_on_badge_id"
     t.index ["user_id"], name: "index_user_badges_on_user_id"
   end
