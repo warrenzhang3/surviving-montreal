@@ -1,8 +1,12 @@
-  
 <div class="container">
   <div class="row">
     <div class="col-12">
       <h1>Plan An Event</h1>
+      <% if flash.now[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash.now[:alert] %>
+        </div>
+      <% end %>
       <%= form_with model: @event, local: true, class: "needs-validation", novalidate: true do |f| %>
         <div class="mb-3">
           <%= f.label :title, class: "form-label" %>
@@ -46,28 +50,10 @@
             Please provide the number of people.
           </div>
         </div>
-      </div>
-      <div class="button-styling">
-        <%= f.submit "Plan Event", class: 'btn btn-primary'%>
-      </div>
-    <% end %>
+        <div class="button-styling">
+          <%= f.submit "Plan Event", class: 'btn btn-primary'%>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-</div>
-<%# <script>
-  (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      var forms = document.getElementsByClassName('needs-validation');
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
-</script> %>

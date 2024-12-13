@@ -31,12 +31,12 @@ class EventsController < ApplicationController
         current_user.award_badge('First Event Create')
         current_user.check_winter_survival_badge
         message += " You have earned a new badge!"
-      end
-      if current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
+      elsif current_user.badges.where(name: ['First Article', 'Attend Your First Event', 'First Event Create']).count >= 3
         message = "Congratulations! You've also received the 'Survived Your First Winter' badge."
       end
       redirect_to events_path, notice: message
     else
+      flash.now[:alert] = @event.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
   end
