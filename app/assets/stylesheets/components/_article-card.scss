@@ -6,6 +6,7 @@
   width: 95%;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba($color: #9b9b9b, $alpha: 0.7);
   //box-shadow: 2px 2px 8px rgba(170 170 170 0.7);
@@ -82,4 +83,6 @@
 
 .card-paragraph{
   text-align: justify;
+  font-family: Roboto;
+  font-weight: 300;
 }

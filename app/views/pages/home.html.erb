@@ -1,8 +1,8 @@
 <div class="home-container">
-  <h1>Hey <%= current_user ? current_user.name : "Guest" %>! <i class="fa-regular fa-face-smile"></i></h1>
-  <p>How are you surviving today?</p>
+  <h2 style="color: #2192bf">Hey <%= current_user ? current_user.name : "Guest" %>! <i class="fa-sharp fa-solid fa-face-smile-wink" style="color: #2192bf;"></i></h2>
+  <p >How are you surviving today?</p>
   <%= render "/shared/search" %>
-  <h1>ARTICLES</h1>
+  <h1 class="home-card">ARTICLES</h1>
   <%= render "/shared/article-card" %>
   <h1>EVENTS</h1>
   <%= render "/shared/event-card" %>
