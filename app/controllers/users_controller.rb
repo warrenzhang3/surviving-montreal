@@ -5,5 +5,8 @@ class UsersController < ApplicationController
 
   def my_badges
     @user = current_user
+    if current_user.user_badges.where(seen: false).any?
+      current_user.user_badges.update_all(seen: true)
+    end
   end
 end

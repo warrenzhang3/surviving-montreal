@@ -28,8 +28,8 @@
       <li class="nav-item" id="badge-link">
         <% if user_signed_in? %>
           <%= link_to 'My Badges', my_badges_path, class: "nav-link" %>
-          <% if @badge_count > 0 %>
-            <span class="badge badge-pill badge-primary"><%= @badge_count %></span>
+          <% if current_user.unseen_badges_count > 0 %>
+            <span class="badge badge-pill badge-primary"><%= current_user.unseen_badges_count %></span>
           <% end %>
         <% end %>
       </li>

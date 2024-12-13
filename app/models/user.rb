@@ -29,7 +29,7 @@ class User < ApplicationRecord
     end
   end
 
-  def badge_count
-    badges.count
+  def unseen_badges_count
+    user_badges.where(seen: false).count
   end
 end
