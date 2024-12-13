@@ -1,5 +1,7 @@
 <%# app/views/events/index.html.erb  %>
+
 <% content_for :title, "Surviving Montreal: Upcoming Events" %>
+  <h1>Events</h1>
 <div class="container">
   <div class="row">
     <%= render "/shared/search" %>
@@ -16,6 +18,7 @@
               <% event.images.each do |image| %>
                 <div class="mb-2">
                   <%= cl_image_tag image.key, class: "img-fluid text-image", style: "height: 200px; width: 100%; object-fit: cover;" %>
+                    <span class="badge badge-pill badge-primary" style="background-color: #007bff; color: white; border-radius: 20px;">Event</span>
                 </div>
               <% end %>
             </div>
